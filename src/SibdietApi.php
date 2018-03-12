@@ -57,7 +57,7 @@ class SibdietApi
 
     private function prepareGet($function, $data)
     {
-        return sprintf('get/sibdiet3/%s?api_key=%s?%s', $function, $this->apiKey, http_build_query($data));
+        return sprintf('get/sibdiet3/%s?api_key=%s&%s', $function, $this->apiKey, http_build_query($data));
     }
 
     /**
