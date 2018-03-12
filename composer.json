@@ -1,0 +1,26 @@
+{
+  "name": "sadegh-pm/sibdiet_api",
+  "description": "sibdiet.net api",
+  "authors": [
+    {
+      "name": "SadeghPM",
+      "email": "SadeghPM@gmail.com"
+    }
+  ],
+  "homepage": "https://gitlab.com/SadeghPM/sibdietApi",
+  "require": {
+    "php": ">=7.0.0",
+    "psr/http-message": "1.0.1",
+    "guzzlehttp/guzzle": "6.3.0",
+    "tightenco/collect": "^5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "SadeghPM\\Sibdiet\\": "src",
+      "Tests\\": "tests"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "6.5.7"
+  }
+}
