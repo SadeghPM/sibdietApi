@@ -44,7 +44,7 @@ class SibdietApi
      * @throws RequestException
      * @throws SibdietException
      */
-    public function getUserProfile($siteId = null, $mobile = null)
+    public function getUserProfile($siteId, $mobile)
     {
         $profile = $this->client->get(
             $this->prepareGet(
@@ -85,15 +85,15 @@ class SibdietApi
     /**
      * get user diet list
      *
-     * @param null $siteId
-     * @param null $mobile
+     * @param  $siteId
+     * @param  $mobile
      *
      * @return Collection
      *
      * @throws RequestException if connection error
      * @throws SibdietException any sibdiet error
      */
-    public function getUserDiets($siteId = null, $mobile = null)
+    public function getUserDiets($siteId, $mobile)
     {
         $diets = $this->client->request('get', $this->prepareGet('diets', ['p' => $siteId, 'm' => $mobile]));
 
@@ -109,10 +109,10 @@ class SibdietApi
      *
      * @return Collection
      *
-     * @throws RequestException
      * @throws SibdietException
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getUserLastDiet($siteId = null, $mobile = null, $dietId = null)
+    public function getUserLastDiet($siteId, $mobile, $dietId = null)
     {
         $diet = $this->client->request(
             'get', $this->prepareGet('diet', ['p' => $siteId, 'm' => $mobile, 'd' => $dietId])
