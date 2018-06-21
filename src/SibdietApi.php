@@ -103,9 +103,9 @@ class SibdietApi
     /**
      * get user last diet
      *
-     * @param null $siteId
-     * @param null $mobile
-     * @param null $dietId
+     * @param int $siteId
+     * @param string $mobile
+     * @param int $dietId
      *
      * @return Collection
      *
@@ -119,6 +119,30 @@ class SibdietApi
         );
 
         return $this->makeResult($diet);
+    }
+
+    /**
+     * set user telegramId
+     *
+     * @param $siteId
+     * @param $mobile
+     * @param $telegramId
+     *
+     * @return Collection
+     * @throws SibdietException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function setUserTelegramId($siteId, $mobile, $telegramId)
+    {
+        $response = $this->client->request(
+            'get', $this->prepareGet(
+            'profile',
+            ['p' => $siteId, 'm' => $mobile, 'profile' => json_encode(['telegram_id' => $telegramId])]
+        )
+        );
+
+        return $this->makeResult($response);
+
     }
 
     /**
