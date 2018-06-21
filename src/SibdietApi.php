@@ -51,8 +51,7 @@ class SibdietApi
                 'profile', ['p' => $siteId, 'm' => $mobile]
             )
         );
-
-        return $this->makeResult($profile);
+        return Collection::make($this->makeResult($profile)->get('profile'));
     }
 
     private function prepareGet($function, $data)
@@ -92,6 +91,7 @@ class SibdietApi
      *
      * @throws RequestException if connection error
      * @throws SibdietException any sibdiet error
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getUserDiets($siteId, $mobile)
     {
